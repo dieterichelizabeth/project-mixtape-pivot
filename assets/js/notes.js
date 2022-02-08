@@ -1,5 +1,6 @@
 /*
 Project pivot
+Branch: Feature/api-calls
 Step 1: make a successful call from both API's
     - FIRST COMPLETE
         - https://quotesondesign.com/api/ ASLO WORKS!
@@ -33,6 +34,7 @@ Issues:
 - Both timers needs to be re-worked
     - 1500 secconds in a minute: create a function to display time in "minutes"
 - Unsplashed API will not display URL
+- Chillhop video will not play immediately on load...
 
 Future Improvements:
 - figure out how to loop the timer so that with each loop, the next task is displayed
@@ -40,4 +42,10 @@ Future Improvements:
     - "restart the app after your break to continue"...or something like that
 - add user input tasks to "completed list" in local storage
     - upon load display for the user to see their work/time
+*/
+
+/*
+To-do: styling the HTML elements
+Add Tailwind
+Possibly find another image API for displaying images???
 */
