@@ -68,6 +68,7 @@ function takeABreak() {
     $('#affirmation').text("time for a break!");
 
     // display a photo from Unsplash
+    // calmingBreak();
 
     // start break timer
     breakCountDown();
@@ -106,7 +107,7 @@ document.getElementById('calmingImage').appendChild(img);
 
 // Break Timer
 function breakCountDown() {
-    var timeLeft = 10; 
+    var timeLeft = 20; 
     // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
     var timeInterval = setInterval(function () {
       // As long as the `timeLeft` is greater than 1
