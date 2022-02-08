@@ -21,3 +21,19 @@ Step 6: figure out how to loop the timer so that with each loop, the next task i
 Step 7: after the fourth round, display "time to take a longer break: 15-30 minutes"
     - "restart the app after your break to continue"...or something like that
 */
+
+// https://quotesondesign.com/api/ WORKS!
+
+// Attempt at API call # 1
+var cuteQuote = function(){
+    var apiURL = "https://quotesondesign.com/wp-json/wp/v2/posts/?orderby=rand";
+     // fetch the quote
+    fetch(apiURL).then(function(response){
+        // format the quote w/ JSON
+        response.json().then(function(quote){
+            console.log(quote);
+        })
+    })
+}
+
+cuteQuote();
