@@ -29,23 +29,26 @@ Done Step 4:
         - use secconds for development
 Done Step 5: when the timer runs out, display a photo from the unsplash api
     - another timer starts for 5 minutes
+Done Step 6: set up tailwind
 
 Issues:
 - Both timers needs to be re-worked
     - 1500 secconds in a minute: create a function to display time in "minutes"
-- Unsplashed API will not display URL
-- Chillhop video will not play immediately on load...
 
-Future Improvements:
+/*
+To-do: 
+- styling the HTML elements
+- set up env file for keys
+    - Unsplashed API will not display URL
+- timer
+- social media api addition
+*/
+
+/* Future Improvements:
 - figure out how to loop the timer so that with each loop, the next task is displayed
+- pause button on timer
 - after the fourth round, display "time to take a longer break: 15-30 minutes"
     - "restart the app after your break to continue"...or something like that
 - add user input tasks to "completed list" in local storage
     - upon load display for the user to see their work/time
-*/
-
-/*
-To-do: styling the HTML elements
-Add Tailwind
-Possibly find another image API for displaying images???
 */
