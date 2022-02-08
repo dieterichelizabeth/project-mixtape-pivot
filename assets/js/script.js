@@ -11,6 +11,7 @@ Step 1: make a successful call from both API's
           All links back to Unsplash should use utm parameters in the ?
         - Your application’s Access Key and Secret Key  must remain confidential. 
           This may require using a proxy if accessing the API client-side.
+    Step 1.1: add error handling
 Step 2: create general HTML setup
     - title
     - div for the youtube video? + image?
@@ -47,3 +48,44 @@ var cuteQuote = function(){
         })
     })
 }
+
+var calmingBreak = function() {
+    accessKey = 
+    // searches for a random photo - specific searches require authorization
+    var apiURL = "https://api.unsplash.com/photos/random/?client_id=" + accessKey;
+    
+    fetch(apiURL).then(function(response) {
+        response.json().then(function(image){
+            console.log(image);
+            console.log(image.urls.regular);
+            //https://images.unsplash.com/photo-1643555357351-ca1c5d2f00d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyOTg3ODl8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NDQzMDUzNTM&ixlib=rb-1.2.1&q=80&w=1080
+            console.log(image.links.html);
+            //https://unsplash.com/photos/d1gfVswXpLk
+            console.log(image.user.name);
+            //Olena Sergienko
+            console.log(image.user.links.self);
+            //https://api.unsplash.com/users/olenkasergienko
+        })
+    })
+// calls remaining 999
+}
+
+
+function displayImage() {
+// image src url
+// imageURL = ("https://images.unsplash.com/photo-1643555357351-ca1c5d2f00d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyOTg3ODl8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NDQzMDUzNTM&ixlib=rb-1.2.1&q=80&w=1080");
+// $('#calmingImageLi').attr("href", imageURL);  
+// creator link url
+var img = $(document.createElement('img'));
+img.attr('src', "https://unsplash.com/photos/d1gfVswXpLk");
+img.appendTo('#calmingImage');
+// creator name
+photographer = ("Olena Sergienko")
+$('#photographerProps').text("src", photographer);
+// creator link
+creatorLink = ("https://api.unsplash.com/users/olenkasergienko")
+$('#photographer').text("href", creatorLink);
+}
+
+// calmingBreak();
+displayImage();
