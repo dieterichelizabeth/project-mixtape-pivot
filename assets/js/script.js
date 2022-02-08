@@ -32,6 +32,17 @@ Step 6: figure out how to loop the timer so that with each loop, the next task i
 Step 7: after the fourth round, display "time to take a longer break: 15-30 minutes"
     - "restart the app after your break to continue"...or something like that
 */
+var toDoEl = document.querySelector("#task-name");
+
+$( "#start" ).click(function() {
+    console.log("start clicked");
+
+    // Grab the HTML entered in the form
+    var task = toDoEl.value.trim();
+    console.log(task)
+  });
+
+
 
 // Function to get a nice "quote for thought"...Call when ready
 var cuteQuote = function(){
@@ -69,7 +80,6 @@ var calmingBreak = function() {
     })
 }
 
-
 function displayImage(imageItself) {
 // creates a new image
 var img = new Image();
@@ -80,3 +90,4 @@ img.src = imagePicture;
 // append to div
 document.getElementById('calmingImage').appendChild(img);
 }
+
