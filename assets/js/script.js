@@ -1,6 +1,9 @@
 /*
 Project pivot
 Step 1: make a successful call from both API's
+    - FIRST COMPLETE
+        - https://quotesondesign.com/api/ ASLO WORKS!
+    -
 Step 2: create general HTML setup
     - title
     - div for the youtube video?
@@ -22,16 +25,18 @@ Step 7: after the fourth round, display "time to take a longer break: 15-30 minu
     - "restart the app after your break to continue"...or something like that
 */
 
-// https://quotesondesign.com/api/ WORKS!
-
 // Attempt at API call # 1
 var cuteQuote = function(){
-    var apiURL = "https://quotesondesign.com/wp-json/wp/v2/posts/?orderby=rand";
+    var apiURL = "https://api.adviceslip.com/advice";
      // fetch the quote
     fetch(apiURL).then(function(response){
         // format the quote w/ JSON
         response.json().then(function(quote){
             console.log(quote);
+            //the quote itself
+            quoteSlip = quote.slip.advice;
+            // Display the quote
+            $('#affirmation').text(quoteSlip);
         })
     })
 }
