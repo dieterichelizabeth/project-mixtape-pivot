@@ -12,16 +12,16 @@ Step 1: make a successful call from both API's
         - Your application’s Access Key and Secret Key  must remain confidential. 
           This may require using a proxy if accessing the API client-side.
     Step 1.1: add error handling
-Step 2: create general HTML setup
+Done Step 2: create general HTML setup
     - title
     - div for the youtube video? + image?
-    - add user input to pick a task "add up to 4 tasks"
+    - allow user to add the task they wish to work on
     - start button for timer
 Step 3: 
     - when the user clicks start, 
         - the timer is displayed under the app title
         - an inspirational quote is displayed under the title
-    - the user's first task is displayed to them
+    - the user's task is displayed to them
     - chillhop study girl youtube video is displayed and plays
 Step 4: 
     - create the timer function to countdown from 25 minutes
@@ -40,9 +40,43 @@ $( "#start" ).click(function() {
     // Grab the HTML entered in the form
     var task = toDoEl.value.trim();
     console.log(task)
+
+    // clear the welcome - display the task at hand + inspirational quote
+    $( "#content").empty();
+    $('#content').append('<p>Task at hand: ' + task + '</p>'); 
+
+    // start the timer
+    countDown();
+
+    // display the video
+
+    // display the inspirational quote
+    // cuteQuote();
   });
 
+// Timer
+function countDown() {
+    var timeLeft = 10; 
+    // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
+    var timeInterval = setInterval(function () {
+      // As long as the `timeLeft` is greater than 1
+      if (timeLeft > 1) {
+        // Set the `textContent` of `timerEl` to show the remaining seconds
+          $("#timer").text('Time left: ' + timeLeft);
+        // Decrement `timeLeft` by 1
+        timeLeft --;
+      } 
+      else {
+        // Once `timeLeft` gets to 0, game over
+        $("#timer").text('');
+        // Use `clearInterval()` to stop the timer
+        clearInterval(timeInterval);
+        //go to "break"
 
+        }
+    }, 1000);
+  }
+  
 
 // Function to get a nice "quote for thought"...Call when ready
 var cuteQuote = function(){
