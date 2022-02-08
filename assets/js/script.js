@@ -17,7 +17,7 @@ Done Step 2: create general HTML setup
     - div for the youtube video? + image?
     - allow user to add the task they wish to work on
     - start button for timer
-Step 3: 
+Done Step 3: 
     - when the user clicks start, 
         - the timer is displayed under the app title
         - an inspirational quote is displayed under the title
@@ -49,7 +49,7 @@ $( "#start" ).click(function() {
     countDown();
 
     // display the video
-
+    $('#content').append('<iframe width="560" height="315" src="https://www.youtube.com/embed/5qap5aO4i9A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'); 
     // display the inspirational quote
     // cuteQuote();
   });
@@ -76,7 +76,6 @@ function countDown() {
         }
     }, 1000);
   }
-  
 
 // Function to get a nice "quote for thought"...Call when ready
 var cuteQuote = function(){
