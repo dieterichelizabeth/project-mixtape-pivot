@@ -49,43 +49,34 @@ var cuteQuote = function(){
     })
 }
 
+// Image Search/display limit- 50 calls per hour
 var calmingBreak = function() {
-    accessKey = 
+    accessKey = "";
     // searches for a random photo - specific searches require authorization
     var apiURL = "https://api.unsplash.com/photos/random/?client_id=" + accessKey;
     
     fetch(apiURL).then(function(response) {
         response.json().then(function(image){
             console.log(image);
-            console.log(image.urls.regular);
-            //https://images.unsplash.com/photo-1643555357351-ca1c5d2f00d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyOTg3ODl8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NDQzMDUzNTM&ixlib=rb-1.2.1&q=80&w=1080
+            // ImageLink: console.log(image.urls.regular); PhotographerName: console.log(image.user.name); PhotographerAccount:console.log(image.user.links.self);
+            
+            // gets the image itself
             console.log(image.links.html);
-            //https://unsplash.com/photos/d1gfVswXpLk
-            console.log(image.user.name);
-            //Olena Sergienko
-            console.log(image.user.links.self);
-            //https://api.unsplash.com/users/olenkasergienko
+            var imageItself = String(image.links.html);
+            // send to display image (created to get around CORS- not working)
+            displayImage(imageItself)
         })
     })
-// calls remaining 999
 }
 
 
-function displayImage() {
-// image src url
-// imageURL = ("https://images.unsplash.com/photo-1643555357351-ca1c5d2f00d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyOTg3ODl8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NDQzMDUzNTM&ixlib=rb-1.2.1&q=80&w=1080");
-// $('#calmingImageLi').attr("href", imageURL);  
-// creator link url
-var img = $(document.createElement('img'));
-img.attr('src', "https://unsplash.com/photos/d1gfVswXpLk");
-img.appendTo('#calmingImage');
-// creator name
-photographer = ("Olena Sergienko")
-$('#photographerProps').text("src", photographer);
-// creator link
-creatorLink = ("https://api.unsplash.com/users/olenkasergienko")
-$('#photographer').text("href", creatorLink);
+function displayImage(imageItself) {
+// creates a new image
+var img = new Image();
+// grabs the https from the earlier fetch
+var imagePicture = imageItself;
+// sets the source
+img.src = imagePicture;
+// append to div
+document.getElementById('calmingImage').appendChild(img);
 }
-
-// calmingBreak();
-displayImage();
