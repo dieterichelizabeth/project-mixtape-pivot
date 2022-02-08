@@ -39,16 +39,15 @@ Issues:
 To-do: 
 - styling the HTML elements
 - set up env file for keys
-    - Unsplashed API will not display URL
 - timer
-- social media api addition
 */
 
 /* Future Improvements:
 - figure out how to loop the timer so that with each loop, the next task is displayed
-- pause button on timer
+- pause button on timer, add and subtract time
 - after the fourth round, display "time to take a longer break: 15-30 minutes"
     - "restart the app after your break to continue"...or something like that
 - add user input tasks to "completed list" in local storage
     - upon load display for the user to see their work/time
+- social media api addition
 */

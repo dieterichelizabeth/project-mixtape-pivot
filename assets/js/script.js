@@ -68,7 +68,7 @@ function takeABreak() {
     $('#affirmation').text("time for a break!");
 
     // display a photo from Unsplash
-    // calmingBreak();
+    calmingBreak();
 
     // start break timer
     breakCountDown();
@@ -84,25 +84,13 @@ var calmingBreak = function() {
         response.json().then(function(image){
             console.log(image);
             // ImageLink: console.log(image.urls.regular); PhotographerName: console.log(image.user.name); PhotographerAccount:console.log(image.user.links.self);
-            
-            // gets the image itself
-            console.log(image.links.html);
-            var imageItself = String(image.links.html);
-            // send to display image (created to get around CORS- not working)
-            displayImage(imageItself)
+            var person = image.user.name;
+            $( "#photographerProps" ).text( person );
+            // displays the image itself
+            var imageItself = image.urls.regular;
+            $("#calmingImage" ).attr("src", imageItself);
         })
     })
-}
-
-function displayImage(imageItself) {
-// creates a new image
-var img = new Image();
-// grabs the https from the earlier fetch
-var imagePicture = imageItself;
-// sets the source
-img.src = imagePicture;
-// append to div
-document.getElementById('calmingImage').appendChild(img);
 }
 
 // Break Timer
