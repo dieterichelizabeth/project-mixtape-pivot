@@ -29,6 +29,7 @@ Have a quality README (with unique name, description, technologies used, screens
 - [Unsplash API Guidelines Documentation](https://help.unsplash.com/en/articles/2511245-unsplash-api-guidelines)
 - [Advice Slip API Documentation](https://api.adviceslip.com/)
 - [jQuery Documentation](https://api.jquery.com/)
+- [Video/Music Source](https://www.youtube.com/watch?v=5qap5aO4i9A)
 
 ---
 
