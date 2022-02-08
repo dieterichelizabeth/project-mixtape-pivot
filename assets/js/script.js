@@ -3,10 +3,17 @@ Project pivot
 Step 1: make a successful call from both API's
     - FIRST COMPLETE
         - https://quotesondesign.com/api/ ASLO WORKS!
-    -
+    - Unsplash
+        - All API uses must use the hotlinked image URLs returned by the API under the photo.urls 
+          properties. This applies to all uses of the image and not just search results.
+        - When displaying a photo from Unsplash, your application must attribute Unsplash, 
+          the Unsplash photographer, and contain a link back to their Unsplash profile.
+          All links back to Unsplash should use utm parameters in the ?
+        - Your application’s Access Key and Secret Key  must remain confidential. 
+          This may require using a proxy if accessing the API client-side.
 Step 2: create general HTML setup
     - title
-    - div for the youtube video?
+    - div for the youtube video? + image?
     - add user input to pick a task "add up to 4 tasks"
     - start button for timer
 Step 3: 
@@ -25,20 +32,18 @@ Step 7: after the fourth round, display "time to take a longer break: 15-30 minu
     - "restart the app after your break to continue"...or something like that
 */
 
-// Attempt at API call # 1
+// Function to get a nice "quote for thought"...Call when ready
 var cuteQuote = function(){
     var apiURL = "https://api.adviceslip.com/advice";
-     // fetch the quote
+    // fetch the quote
     fetch(apiURL).then(function(response){
         // format the quote w/ JSON
         response.json().then(function(quote){
             console.log(quote);
-            //the quote itself
+            // variable to hold the quote itself
             quoteSlip = quote.slip.advice;
-            // Display the quote
+            // grabs id to display the quote
             $('#affirmation').text(quoteSlip);
         })
     })
 }
-
-cuteQuote();

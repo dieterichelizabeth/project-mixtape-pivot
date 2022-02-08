@@ -26,7 +26,9 @@ Have a quality README (with unique name, description, technologies used, screens
 ## Documentation/Resources
 
 - [Unsplash API Documentation](https://unsplash.com/documentation#search-photos)
-- [Inspiration API Documentation](https://inspiration.goprogram.ai/docs/)
+- [Unsplash API Guidelines Documentation](https://help.unsplash.com/en/articles/2511245-unsplash-api-guidelines)
+- [Advice Slip API Documentation](https://api.adviceslip.com/)
+- [jQuery Documentation](https://api.jquery.com/)
 
 ---
 
