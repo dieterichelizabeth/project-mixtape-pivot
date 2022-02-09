@@ -1,6 +1,5 @@
 /*
 Project pivot
-Branch: Feature/api-calls
 Step 1: make a successful call from both API's
     - Advice Slip API COMPLETE
         - https://quotesondesign.com/api/ ASLO WORKS!
@@ -12,9 +11,11 @@ Step 1: make a successful call from both API's
           All links back to Unsplash should use utm parameters in the ?
         - Your application’s Access Key and Secret Key  must remain confidential. 
           This may require using a proxy if accessing the API client-side.
+    - Add error handling
 Done Step 2: create general HTML setup
     - title, div for the youtube video + image
     - allow user to add the task they wish to work on, start button for timer
+        - add error handling
 Done Step 3: 
     - when the user clicks start, 
         - the timer is displayed under the app title
@@ -27,6 +28,7 @@ Done Step 4:
 Done Step 5: when the timer runs out, display a photo from the unsplash api
     - another timer starts for 5 minutes
 Done Step 6: set up tailwind
+Done Step 7: add local storage ("study session") functionality
 Step 7: Styling elements with HTML
 Step 8: Revert timer to minutes (25 minutes for "task time", 5 minutes for "break time")
 
