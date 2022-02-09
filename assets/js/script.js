@@ -96,7 +96,7 @@ function takeABreak() {
     $('#affirmation').text("time for a break!");
 
     // display a photo from Unsplash
-    calmingBreak();
+    // calmingBreak();
 
     // start break timer
     breakCountDown();
@@ -104,7 +104,7 @@ function takeABreak() {
 
 // Image Search/display limit- 50 calls per hour
 var calmingBreak = function() {
-    accessKey = "gtFcwNhmDeOTlqI5JaD3lsDRHX8wEhxWNcMqDyC5NYc";
+    accessKey = "";
     // searches for a random photo - specific searches require authorization
     var apiURL = "https://api.unsplash.com/photos/random/?client_id=" + accessKey;
     
