@@ -7,16 +7,15 @@
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <title>Pomodoro</title>
   </head>
-  <body class="bg-gray-900">
+  <body class="font-mono h-screen bg-gray-900">
     <header>
       <!-- Displays the Affirmation/Quote -->
-      <div>
-        <h1 class="text-indigo-400">Pomodorian</h1>
+      <div class="m-6 text-5xl text-center text-indigo-400">
+        <h1>Pomodorian</h1>
       </div>
     </header>
-
     <section id="thingsToDo">
-      <div id="content">
+      <div class="text-base text-white text-center m-4" id="content">
         <p>
           Welcome back! Enter a task you need to complete, and click start! When
           the music begins, a timer will track how long you've been working.
@@ -24,28 +23,36 @@
         </p>
         <form id="taskAtHand">
           <label for="task-name"></label>
-          <input
+          <div class="flex items-center justify-center">
+              <!--Fix-->
+          <input class=" m-6 p-2 rounded-md bg-indigo-900 border-2 border-white text-xs shadow-xs" placeholder="whatcha working on?" required
             type="text"
             name="taskname"
             id="task-name"
             placeholder="ex. Coding Homework"
           />
-          <button id="start" type="button">Start!</button>
+          </div>
+          <button class="bg-gray-500 rounded-md p-1" id="start" type="button">Start!</button>
+          <!--
+              </div>
+  <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+          -->
         </form>
       </div>
       <div id="next"></div>
     </section>
-
-    <!-- Timer -->
-    <div>
-      <p id="timer">Timer: 25:00</p>
+    <!-- Timer
+    Style Further-->
+    <div class="flex justify-center">
+    <div class="w-20 h-20 rounded-full p-4 bg-teal-400">
+      <!-- Sky and cyan broke the timer. replace with teal-->
+      <p class="text-purple-600 text-base text-center" id="timer">Timer: 25:00</p>
     </div>
-
+    </div>
     <!-- Displays the Affirmation/Quote -->
-    <p id="affirmation">You got this!</p>
+    <p class="text-lg text-indigo-400 text-center border-solid border-2 border-white rounded-md justify-center p-2 m-10" id="affirmation">You got this!</p>
     <!-- Displays the "calming photo during break" -->
-    <div id="calmingImage">
-
+    <div id="calmingImage"></div>
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./assets/js/script.js"></script>
