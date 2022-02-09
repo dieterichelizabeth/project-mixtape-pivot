@@ -22,7 +22,7 @@ $( "#start" ).click(function() {
     cuteQuote();
   });
 
-// Timer
+// Timer (Task time!)
 function countDown() {
     var timeLeft = 20; 
     // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
@@ -61,6 +61,7 @@ var cuteQuote = function(){
     })
 }
 
+// Transition to Break Time
 function takeABreak() {
     // clear content div
     $( "#content").empty();
@@ -99,7 +100,7 @@ var calmingBreak = function() {
     })
 }
 
-// Break Timer
+// Break Timer!
 function breakCountDown() {
     var timeLeft = 20; 
     // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds

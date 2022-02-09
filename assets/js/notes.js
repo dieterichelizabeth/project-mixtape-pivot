@@ -33,6 +33,8 @@ Step 8: Revert timer to minutes (25 minutes for "task time", 5 minutes for "brea
 Issues:
 - Both timers needs to be re-worked
     - 1500 secconds in a minute: create a function to display time in "minutes"
+*/
+
 
 /*
 To-do: 
