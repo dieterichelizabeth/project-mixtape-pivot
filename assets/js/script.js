@@ -154,7 +154,6 @@ $( "#clear" ).click(function() {
   // set array to null and push to local storage, then clear that div
   completedToDo = [];
   localStorage.setItem("Completed To-do items", JSON.stringify(completedToDo));
-  // location.reload();
-  $('#affirmation').empty();
+  location.reload();
 });
 }
