@@ -42,7 +42,7 @@ $( "#start" ).click(function() {
     countDown();
 
     // display the video
-    $('#content').append('<iframe width="560" height="315" class="" src="https://www.youtube.com/embed/5qap5aO4i9A?autoplay=1"></iframe>'); 
+    $('#content').append('<iframe width="560" height="315" class="display inline-block" src="https://www.youtube.com/embed/5qap5aO4i9A?autoplay=1"></iframe>'); 
     
     // display the inspirational quote
     cuteQuote();
