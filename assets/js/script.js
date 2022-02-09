@@ -9,7 +9,7 @@ $( "#start" ).click(function() {
     var thingToDo = toDoEl.value.trim();
 
     // clear the welcome - display the task at hand + inspirational quote
-    $( "#content").empty();
+    $('#content').empty();
     $('#content').append('<p>Task at hand: ' + thingToDo + '</p>'); 
 
     // start the timer
@@ -17,6 +17,7 @@ $( "#start" ).click(function() {
 
     // display the video
     $('#content').append('<iframe width="560" height="315" src="https://www.youtube.com/embed/5qap5aO4i9A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'); 
+    
     // display the inspirational quote
     cuteQuote();
   });
@@ -68,7 +69,7 @@ function takeABreak() {
     $('#affirmation').text("time for a break!");
 
     // display a photo from Unsplash
-    calmingBreak();
+    // calmingBreak();
 
     // start break timer
     breakCountDown();
@@ -82,18 +83,18 @@ var calmingBreak = function() {
     
     fetch(apiURL).then(function(response) {
         response.json().then(function(image){
-            console.log(image);
-            // ImageLink: console.log(image.urls.regular); PhotographerName: console.log(image.user.name); PhotographerAccount:console.log(image.user.links.self);
-            // var person = image.user.name;
-            // $( "#photographerProps" ).text( person );
-            // displays the image itself
-            var imageItself = image.urls.regular;
-            // $("#calmingImage" ).attr("src", imageItself);
-          $('<a href=""><img src="' + imageItself + '"></a> ').appendTo('#calmingImage');
+          console.log(image);
+
+          // displays the image itself (link to photo on Unsplashed = API required)
+          var imageItself = image.urls.regular;
+          $('<a href="'+ image.links.html + '"><img src="' + imageItself + '"></a> ').appendTo('#calmingImage');
            
 
-            // add photographer credits (Link to photographer profile + photographer name = API required)
-          $('<a href="' + image.user.links.self + '">' + image.user.name + '</a>').appendTo('#calmingImage');
+          // add photographer credits (Link to photographer profile + photographer name = API required)
+          $('<a href="' + image.user.portfolio_url + '">' + image.user.name + '</a>').appendTo('#calmingImage');
+
+          // crediting unsplash (API required)
+          $('<br><a href="https://unsplash.com/">Unsplash</a>').appendTo('#calmingImage');
         })
     })
 }
@@ -120,5 +121,3 @@ function breakCountDown() {
         }
     }, 1000);
   }
-
-calmingBreak();
