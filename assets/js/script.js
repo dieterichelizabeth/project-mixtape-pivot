@@ -13,14 +13,14 @@ $(document).ready(function() {
     }
 
   // add the to do's of previous "sessions"
-  $('<p>Previous study sessions:</p>').appendTo('#affirmation');
+  $('<p class="text-sm">Previous study sessions:</p>').appendTo('#affirmation');
   // Display completed tasks to the user
   for (let i = 0; i < completedToDo.length; i++) { 
       // add the task text + styling(bootstrap) + id
-      $('<p>' + completedToDo[i] + '</p>').appendTo('#affirmation');
+      $('<p class="text-xs">' + completedToDo[i] + '</p>').appendTo('#affirmation');
       }
   // display a clear button
-  $('<button id="clear">Clear</button>').appendTo('#affirmation');
+  $('<button class="bg-gray-500 text-white rounded-md p-1" id="clear">Clear</button>').appendTo('#affirmation');
   // pass dynamic variable
   clearStudySesh();
 });
@@ -42,7 +42,7 @@ $( "#start" ).click(function() {
     countDown();
 
     // display the video
-    $('#content').append('<iframe width="560" height="315" src="https://www.youtube.com/embed/5qap5aO4i9A?autoplay=1"></iframe>'); 
+    $('#content').append('<iframe width="560" height="315" class="" src="https://www.youtube.com/embed/5qap5aO4i9A?autoplay=1"></iframe>'); 
     
     // display the inspirational quote
     cuteQuote();
