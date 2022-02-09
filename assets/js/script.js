@@ -84,11 +84,16 @@ var calmingBreak = function() {
         response.json().then(function(image){
             console.log(image);
             // ImageLink: console.log(image.urls.regular); PhotographerName: console.log(image.user.name); PhotographerAccount:console.log(image.user.links.self);
-            var person = image.user.name;
-            $( "#photographerProps" ).text( person );
+            // var person = image.user.name;
+            // $( "#photographerProps" ).text( person );
             // displays the image itself
             var imageItself = image.urls.regular;
-            $("#calmingImage" ).attr("src", imageItself);
+            // $("#calmingImage" ).attr("src", imageItself);
+          $('<a href=""><img src="' + imageItself + '"></a> ').appendTo('#calmingImage');
+           
+
+            // add photographer credits (Link to photographer profile + photographer name = API required)
+          $('<a href="' + image.user.links.self + '">' + image.user.name + '</a>').appendTo('#calmingImage');
         })
     })
 }
@@ -115,3 +120,5 @@ function breakCountDown() {
         }
     }, 1000);
   }
+
+calmingBreak();
