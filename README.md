@@ -1,6 +1,7 @@
 # project-mixtape-pivot
 
-crunch time.
+- [Application live URL](https://dieterichelizabeth.github.io/project-mixtape-pivot/)
+- [Github Repo URL](https://github.com/dieterichelizabeth/project-mixtape-pivot)
 
 ## User Story:
 
