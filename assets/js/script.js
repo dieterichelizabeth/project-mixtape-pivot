@@ -13,7 +13,7 @@ $(document).ready(function() {
     }
 
   // add the to do's of previous "sessions"
-  $('<p>Previous study sessions:</p>').appendTo('#affirmation');
+  $('<p class="text-12">Previous study sessions:</p>').appendTo('#affirmation');
   // Display completed tasks to the user
   for (let i = 0; i < completedToDo.length; i++) { 
       // add the task text + styling(bootstrap) + id
