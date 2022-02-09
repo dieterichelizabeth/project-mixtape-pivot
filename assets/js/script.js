@@ -9,19 +9,20 @@ $( "#start" ).click(function() {
     var thingToDo = toDoEl.value.trim();
 
     // clear the welcome - display the task at hand + inspirational quote
-    $( "#content").empty();
+    $('#content').empty();
     $('#content').append('<p>Task at hand: ' + thingToDo + '</p>'); 
 
     // start the timer
     countDown();
 
     // display the video
-    $('#content').append('<iframe width="560" height="315" src="https://www.youtube.com/embed/5qap5aO4i9A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'); 
+    $('#content').append('<iframe width="560" height="315" src="https://www.youtube.com/embed/5qap5aO4i9A?autoplay=1"></iframe>'); 
+    
     // display the inspirational quote
     cuteQuote();
   });
 
-// Timer
+// Timer (Task time!)
 function countDown() {
     var timeLeft = 20; 
     // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
@@ -60,6 +61,7 @@ var cuteQuote = function(){
     })
 }
 
+// Transition to Break Time
 function takeABreak() {
     // clear content div
     $( "#content").empty();
@@ -82,30 +84,23 @@ var calmingBreak = function() {
     
     fetch(apiURL).then(function(response) {
         response.json().then(function(image){
-            console.log(image);
-            // ImageLink: console.log(image.urls.regular); PhotographerName: console.log(image.user.name); PhotographerAccount:console.log(image.user.links.self);
-            
-            // gets the image itself
-            console.log(image.links.html);
-            var imageItself = String(image.links.html);
-            // send to display image (created to get around CORS- not working)
-            displayImage(imageItself)
+          console.log(image);
+
+          // displays the image itself (link to photo on Unsplashed = API required)
+          var imageItself = image.urls.regular;
+          $('<a href="'+ image.links.html + '"><img src="' + imageItself + '"></a> ').appendTo('#calmingImage');
+           
+
+          // add photographer credits (Link to photographer profile + photographer name = API required)
+          $('<a href="' + image.user.portfolio_url + '">' + image.user.name + '</a>').appendTo('#calmingImage');
+
+          // crediting unsplash (API required)
+          $('<br><a href="https://unsplash.com/">Unsplash</a>').appendTo('#calmingImage');
         })
     })
 }
 
-function displayImage(imageItself) {
-// creates a new image
-var img = new Image();
-// grabs the https from the earlier fetch
-var imagePicture = imageItself;
-// sets the source
-img.src = imagePicture;
-// append to div
-document.getElementById('calmingImage').appendChild(img);
-}
-
-// Break Timer
+// Break Timer!
 function breakCountDown() {
     var timeLeft = 20; 
     // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
