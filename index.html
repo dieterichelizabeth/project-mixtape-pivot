@@ -16,7 +16,7 @@
     </header>
 
     <section id="thingsToDo">
-      <div id="content">
+      <div class="text-base text-white text-center m-4" id="content">
         <p>
           Welcome back! Enter a task you need to complete, and click start! When
           the music begins, a timer will track how long you've been working.
@@ -24,20 +24,27 @@
         </p>
         <form id="taskAtHand">
           <label for="task-name"></label>
-          <input
+          <div class="flex items-center">
+              <!--Fix-->
+          <input class=" justify-center ml-14 p-1 rounded-md bg-indigo-900 border-2 border-white text-xs shadow-sm" placeholder="What are you working on?" required
             type="text"
             name="taskname"
             id="task-name"
             placeholder="ex. Coding Homework"
           />
+          </div>
           <button id="start" type="button">Start!</button>
+          <!--
+              </div>
+  <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+          -->
         </form>
       </div>
       <div id="next"></div>
     </section>
 
     <!-- Timer -->
-    <div>
+    <div class="">
       <p id="timer">Timer: 25:00</p>
     </div>
 
