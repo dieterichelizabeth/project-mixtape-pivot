@@ -13,14 +13,14 @@ $(document).ready(function() {
     }
 
   // add the to do's of previous "sessions"
-  $('<p>Previous study sessions:</p>').appendTo('#studyLog');
+  $('<p>Previous study sessions:</p>').appendTo('#affirmation');
   // Display completed tasks to the user
   for (let i = 0; i < completedToDo.length; i++) { 
       // add the task text + styling(bootstrap) + id
-      $('<p>' + completedToDo[i] + '</p>').appendTo('#studyLog');
+      $('<p>' + completedToDo[i] + '</p>').appendTo('#affirmation');
       }
   // display a clear button
-  $('<button id="clear">Clear</button>').appendTo('#studyLog');
+  $('<button id="clear">Clear</button>').appendTo('#affirmation');
   // pass dynamic variable
   clearStudySesh();
 });
@@ -154,6 +154,6 @@ $( "#clear" ).click(function() {
   completedToDo = [];
   localStorage.setItem("Completed To-do items", JSON.stringify(completedToDo));
   // location.reload();
-  $('#studyLog').empty();
+  $('#affirmation').empty();
 });
 }
