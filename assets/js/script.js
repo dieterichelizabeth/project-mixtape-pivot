@@ -1,12 +1,38 @@
 // Variable to hold form input
 var toDoEl = document.querySelector("#task-name");
 
+// when document loads, get items from local storage and display on the screen (if applicable)
+$(document).ready(function() {
+  // load items from local storage to display
+  completedToDo = JSON.parse(localStorage.getItem("Completed To-do items"));
+    // if nothing in local storage, create an empty array
+    if (!completedToDo) {
+      completedToDo = [];
+      // save to storage
+      localStorage.setItem("Completed To-do items", JSON.stringify(completedToDo));
+    }
+
+  // add the to do's of previous "sessions"
+  $('<p>Previous study sessions:</p>').appendTo('#affirmation');
+  // Display completed tasks to the user
+  for (let i = 0; i < completedToDo.length; i++) { 
+      // add the task text + styling(bootstrap) + id
+      $('<p>' + completedToDo[i] + '</p>').appendTo('#affirmation');
+      }
+  // display a clear button
+  $('<button id="clear">Clear</button>').appendTo('#affirmation');
+  // pass dynamic variable
+  clearStudySesh();
+});
+
 //When start is clicked...
 $( "#start" ).click(function() {
-    console.log("start clicked");
-
     // Grab the HTML entered in the form
     var thingToDo = toDoEl.value.trim();
+    completedToDo.push(thingToDo);
+
+    // save to storage
+    localStorage.setItem("Completed To-do items", JSON.stringify(completedToDo));
 
     // clear the welcome - display the task at hand + inspirational quote
     $('#content').empty();
@@ -122,3 +148,13 @@ function breakCountDown() {
         }
     }, 1000);
   }
+
+function clearStudySesh () {
+$( "#clear" ).click(function() {
+  // set array to null and push to local storage, then clear that div
+  completedToDo = [];
+  localStorage.setItem("Completed To-do items", JSON.stringify(completedToDo));
+  // location.reload();
+  $('#affirmation').empty();
+});
+}
