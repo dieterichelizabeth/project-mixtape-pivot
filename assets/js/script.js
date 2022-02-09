@@ -42,7 +42,7 @@ $( "#start" ).click(function() {
     countDown();
 
     // display the video
-    $('#content').append('<iframe width="560" height="315" class="display inline-block" src="https://www.youtube.com/embed/5qap5aO4i9A?autoplay=1"></iframe>'); 
+    $('#content').append('<iframe width="535" height="300" src="https://www.youtube.com/embed/5qap5aO4i9A?autoplay=1"></iframe>'); 
     
     // display the inspirational quote
     cuteQuote();
@@ -56,7 +56,7 @@ function countDown() {
       // As long as the `timeLeft` is greater than 1
       if (timeLeft > 1) {
         // Set the `textContent` of `timerEl` to show the remaining seconds
-          $("#timer").text('Time left: ' + timeLeft);
+          $("#timer").text('Timer: ' + timeLeft);
         // Decrement `timeLeft` by 1
         timeLeft --;
       } 
@@ -134,7 +134,7 @@ function breakCountDown() {
       // As long as the `timeLeft` is greater than 1
       if (timeLeft > 1) {
         // Set the `textContent` of `timerEl` to show the remaining seconds
-          $("#timer").text('Time left: ' + timeLeft);
+          $("#timer").text('Timer: ' + timeLeft);
         // Decrement `timeLeft` by 1
         timeLeft --;
       } 
