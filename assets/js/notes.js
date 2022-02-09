@@ -1,6 +1,5 @@
 /*
 Project pivot
-Branch: Feature/api-calls
 Step 1: make a successful call from both API's
     - FIRST COMPLETE
         - https://quotesondesign.com/api/ ASLO WORKS!
