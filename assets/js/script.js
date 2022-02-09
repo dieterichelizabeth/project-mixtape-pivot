@@ -30,6 +30,7 @@ $( "#start" ).click(function() {
     // Grab the HTML entered in the form
     var thingToDo = toDoEl.value.trim();
     completedToDo.push(thingToDo);
+
     // save to storage
     localStorage.setItem("Completed To-do items", JSON.stringify(completedToDo));
 
