@@ -16,56 +16,53 @@ $(document).ready(function() {
   $('<p class="text-sm">Previous study sessions:</p>').appendTo('#affirmation');
   // Display completed tasks to the user
   for (let i = 0; i < completedToDo.length; i++) { 
-      // add the task text + styling(bootstrap) + id
       $('<p class="text-xs">' + completedToDo[i] + '</p>').appendTo('#affirmation');
       }
-  // display a clear button
   $('<button class="bg-gray-500 text-white rounded-md p-1" id="clear">Clear</button>').appendTo('#affirmation');
-  // pass dynamic variable
   clearStudySesh();
 });
 
 //When start is clicked...
 $( "#start" ).click(function() {
-    // Grab the HTML entered in the form
     var thingToDo = toDoEl.value.trim();
     completedToDo.push(thingToDo);
-
-    // save to storage
     localStorage.setItem("Completed To-do items", JSON.stringify(completedToDo));
-
-    // clear the welcome - display the task at hand + inspirational quote
     $('#content').empty();
     $('#content').append('<p>Task at hand: ' + thingToDo + '</p>'); 
 
     // start the timer
-    countDown();
+    studyCountDown();
 
     // display the video
     $('#content').append('<iframe width="535" height="300" src="https://www.youtube.com/embed/5qap5aO4i9A?autoplay=1"></iframe>'); 
     
-    // display the inspirational quote
+    // display inspriational quote
     cuteQuote();
   });
 
 // Timer (Task time!)
-function countDown() {
-    var timeLeft = 20; 
+function studyCountDown() {
+  console.log("timer start");
+    studyTime = 25;
+    var timeLeft = studyTime * 60; 
     // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
     var timeInterval = setInterval(function () {
-      // As long as the `timeLeft` is greater than 1
       if (timeLeft > 1) {
-        // Set the `textContent` of `timerEl` to show the remaining seconds
-          $("#timer").text('Timer: ' + timeLeft);
-        // Decrement `timeLeft` by 1
+        var minutes = Math.floor(timeLeft/60)
+        if (minutes<10) {
+          minutes = '0' + minutes;
+        }
+        let seconds = timeLeft % 60;
+        if (seconds<10) {
+          seconds = '0' + seconds;
+        }
+        $("#timer").text('Timer: ' + minutes + ':' + seconds);
         timeLeft --;
       } 
       else {
         // Once `timeLeft` gets to 0, game over
         $("#timer").text('');
-        // Use `clearInterval()` to stop the timer
         clearInterval(timeInterval);
-        //go to "break"
         takeABreak();
         }
     }, 1000);
@@ -78,10 +75,7 @@ var cuteQuote = function(){
     fetch(apiURL).then(function(response){
         // format the quote w/ JSON
         response.json().then(function(quote){
-            console.log(quote);
-            // variable to hold the quote itself
             quoteSlip = quote.slip.advice;
-            // grabs id to display the quote
             $('#affirmation').text(quoteSlip);
         })
     })
@@ -89,23 +83,17 @@ var cuteQuote = function(){
 
 // Transition to Break Time
 function takeABreak() {
-    // clear content div
     $( "#content").empty();
-
-    // advise user of break
     $('#affirmation').text("time for a break!");
-
     // display a photo from Unsplash
-    // calmingBreak();
-    tempImage();
-
+    calmingBreak();
     // start break timer
     breakCountDown();
 }
 
 // Image Search/display limit- 50 calls per hour
 var calmingBreak = function() {
-    accessKey = "";
+    accessKey = "gtFcwNhmDeOTlqI5JaD3lsDRHX8wEhxWNcMqDyC5NYc ";
     // searches for a random photo - specific searches require authorization
     var apiURL = "https://api.unsplash.com/photos/random/?client_id=" + accessKey;
     
@@ -116,8 +104,7 @@ var calmingBreak = function() {
           // displays the image itself (link to photo on Unsplashed = API required)
           var imageItself = image.urls.regular;
           $('<a href="'+ image.links.html + '"><img src="' + imageItself + '"></a> ').appendTo('#calmingImage');
-           
-
+        
           // add photographer credits (Link to photographer profile + photographer name = API required)
           $('<a href="' + image.user.portfolio_url + '">' + image.user.name + '</a>').appendTo('#calmingImage');
 
@@ -127,36 +114,35 @@ var calmingBreak = function() {
     })
 }
 
-function tempImage () {
-  $('<a class="p-2" href=""><img src="https://images.unsplash.com/photo-1643712662909-29fe8f02b613?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"></a> ').appendTo('#calmingImage');
-}
-
 // Break Timer!
 function breakCountDown() {
-    var timeLeft = 20; 
-    // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
+    breakTime = 5;
+    var timeLeft = breakTime * 60; 
     var timeInterval = setInterval(function () {
-      // As long as the `timeLeft` is greater than 1
       if (timeLeft > 1) {
-        // Set the `textContent` of `timerEl` to show the remaining seconds
-          $("#timer").text('Timer: ' + timeLeft);
-        // Decrement `timeLeft` by 1
+        var minutes = Math.floor(timeLeft/60)
+        if (minutes<10) {
+          minutes = '0' + minutes;
+        }
+        let seconds = timeLeft % 60;
+        if (seconds<10) {
+          seconds = '0' + seconds;
+        }
+        // Set the `textContent` of `timerEl'
+        $("#timer").text('Timer: ' + minutes + ':' + seconds);
         timeLeft --;
       } 
       else {
-        // Once `timeLeft` gets to 0, game over
         $("#timer").text('');
-        // Use `clearInterval()` to stop the timer
         clearInterval(timeInterval);
-        //refresh the page
         location.reload();
         }
     }, 1000);
   }
 
+// set array to null and push to local storage, then clear that div
 function clearStudySesh () {
 $( "#clear" ).click(function() {
-  // set array to null and push to local storage, then clear that div
   completedToDo = [];
   localStorage.setItem("Completed To-do items", JSON.stringify(completedToDo));
   location.reload();
