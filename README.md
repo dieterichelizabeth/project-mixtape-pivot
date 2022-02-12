@@ -15,6 +15,8 @@ We were inspired by streamers doing pomodoro sessions on youtube/tiktok. "The Po
 
 This app runs in the browser and features dynamically updated HTML/CSS powered by jQuery and styled by Tailwind. The app includes Tailwind, jQuery, javaScript, HTML, CSS and Node.js. Multimedia features are delivered from Advice Slip API and Unsplash API. The application creation/implementation was tracked using [Jira](https://challengemixtape.atlassian.net/jira/software/projects/PROP/boards/3). Developed on following criteria-
 
+![](/pomodorian.jpg)
+
 ## Criteria:
 
 ```
